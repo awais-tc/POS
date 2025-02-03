@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class SaleDto
+public class Sale
 {
     [Key]
     public string SaleId { get; set; } = null!;
@@ -20,13 +20,13 @@ public class SaleDto
     public string? TaxId { get; set; }
 
     [ForeignKey(nameof(UserId))]
-    public virtual UserDto User { get; set; } = null!;
+    public virtual User User { get; set; } = null!;
 
     [ForeignKey(nameof(DiscountId))]
-    public virtual DiscountDto? Discount { get; set; }
+    public virtual Discount? Discount { get; set; }
 
     [ForeignKey(nameof(TaxId))]
-    public virtual TaxDto? Tax { get; set; }
+    public virtual Tax? Tax { get; set; }
 
-    public virtual ICollection<SaleItemDto> SaleItems { get; set; } = new List<SaleItemDto>();
+    public virtual ICollection<SaleItem> SaleItems { get; set; } = new List<SaleItem>();
 }

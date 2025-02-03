@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-public class UserPaymentDto
+public class UserPayment
 {
     public string UserId { get; set; } = null!;
     public string PaymentId { get; set; } = null!;
 
     [ForeignKey(nameof(UserId))]
-    public virtual UserDto User { get; set; } = null!;
+    public virtual User User { get; set; } = null!;
 
     [ForeignKey(nameof(PaymentId))]
-    public virtual PaymentDto Payment { get; set; } = null!;
+    public virtual Payment Payment { get; set; } = null!;
 }

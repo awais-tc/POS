@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-public class PaymentDto
+public class Payment
 {
     [Key]
     public string PaymentId { get; set; } = null!;
@@ -20,5 +20,5 @@ public class PaymentDto
     [MaxLength(20)]
     public string PaymentStatus { get; set; } = null!;
 
-    public virtual ICollection<UserPaymentDto> UserPayments { get; set; } = new List<UserPaymentDto>();
+    public virtual ICollection<UserPayment> UserPayments { get; set; } = new List<UserPayment>();
 }

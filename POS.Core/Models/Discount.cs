@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-public class DiscountDto
+public class Discount
 {
     [Key]
     public string DiscountId { get; set; } = null!;
@@ -16,5 +16,5 @@ public class DiscountDto
 
     public float MinPurchaseAmount { get; set; }
 
-    public virtual ICollection<SaleDto> Sales { get; set; } = new List<SaleDto>();
+    public virtual ICollection<Sale> Sales { get; set; } = new List<Sale>();
 }

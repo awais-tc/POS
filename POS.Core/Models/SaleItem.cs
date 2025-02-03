@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class SaleItemDto
+public class SaleItem
 {
     [Key]
     public string SaleItemId { get; set; } = null!;
@@ -20,11 +20,11 @@ public class SaleItemDto
     public string? TaxId { get; set; }
 
     [ForeignKey(nameof(SaleId))]
-    public virtual SaleDto Sale { get; set; } = null!;
+    public virtual Sale Sale { get; set; } = null!;
 
     [ForeignKey(nameof(ProductId))]
-    public virtual ProductDto Product { get; set; } = null!;
+    public virtual Product Product { get; set; } = null!;
 
     [ForeignKey(nameof(TaxId))]
-    public virtual TaxDto? Tax { get; set; }
+    public virtual Tax? Tax { get; set; }
 }

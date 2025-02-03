@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace POS.Core.Models;
 
-public partial class ReceiptDto
+public partial class Receipt
 {
     public string ReceiptId { get; set; } = null!;
 
@@ -13,5 +13,5 @@ public partial class ReceiptDto
 
     public string ReceiptContent { get; set; } = null!;
 
-    public virtual SaleDto Sale { get; set; } = null!;
+    public virtual Sale Sale { get; set; } = null!;
 }

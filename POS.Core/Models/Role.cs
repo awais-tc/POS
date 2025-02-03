@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-public class RoleDto
+public class Role
 {
     [Key]
     public string RoleId { get; set; } = null!;
@@ -10,5 +10,5 @@ public class RoleDto
 
     public string? Permissions { get; set; }
 
-    public virtual ICollection<UserDto> Users { get; set; } = new List<UserDto>();
+    public virtual ICollection<User> Users { get; set; } = new List<User>();
 }

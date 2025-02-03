@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class BarcodeDto
+public class Barcode
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -17,5 +17,5 @@ public class BarcodeDto
     public string BarcodeNumber { get; set; } = null!;
 
     [ForeignKey(nameof(ProductId))]
-    public virtual ProductDto Product { get; set; } = null!;
+    public virtual Product Product { get; set; } = null!;
 }

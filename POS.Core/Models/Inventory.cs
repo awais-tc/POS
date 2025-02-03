@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace POS.Core.Models;
 
-public partial class InventoryDto
+public partial class Inventory
 {
     public string InventoryId { get; set; } = null!;
 
@@ -15,5 +15,5 @@ public partial class InventoryDto
 
     public DateTime LastRestocked { get; set; }
 
-    public virtual ProductDto Product { get; set; } = null!;
+    public virtual Product Product { get; set; } = null!;
 }

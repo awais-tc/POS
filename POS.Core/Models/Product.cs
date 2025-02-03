@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-public class ProductDto
+public class Product
 {
     [Key]
     public string ProductId { get; set; } = null!;
@@ -16,5 +16,5 @@ public class ProductDto
 
     public int StockQuantity { get; set; }
 
-    public virtual ICollection<SaleItemDto> SaleItems { get; set; } = new List<SaleItemDto>();
+    public virtual ICollection<SaleItem> SaleItems { get; set; } = new List<SaleItem>();
 }

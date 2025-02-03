@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-public class TaxDto
+public class Tax
 {
     [Key]
     public string TaxId { get; set; } = null!;
@@ -9,7 +9,7 @@ public class TaxDto
 
     public string? Region { get; set; }
 
-    public virtual ICollection<SaleDto> Sales { get; set; } = new List<SaleDto>();
+    public virtual ICollection<Sale> Sales { get; set; } = new List<Sale>();
 
-    public virtual ICollection<SaleItemDto> SaleItems { get; set; } = new List<SaleItemDto>();
+    public virtual ICollection<SaleItem> SaleItems { get; set; } = new List<SaleItem>();
 }
