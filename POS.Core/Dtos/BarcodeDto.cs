@@ -1,21 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+namespace POS.Core.Dtos;
 public class BarcodeDto
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    [StringLength(450)]
+    
     public string BarcodeId { get; set; } = null!;
 
-    [Required]
-    [StringLength(450)]
+    
     public string ProductId { get; set; } = null!;
 
-    [Required]
-    [StringLength(450)]
+    
     public string BarcodeNumber { get; set; } = null!;
 
-    [ForeignKey(nameof(ProductId))]
     public virtual ProductDto Product { get; set; } = null!;
 }

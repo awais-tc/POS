@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+namespace POS.Core.Dtos;
 public class ProductDto
 {
-    [Key]
+   
     public string ProductId { get; set; } = null!;
 
-    [Required, MaxLength(100)]
+    
     public string Name { get; set; } = null!;
 
     public string? Description { get; set; }

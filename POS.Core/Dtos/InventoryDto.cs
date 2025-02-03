@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace POS.Core.Models;
+namespace POS.Core.Dtos;
 
 public partial class InventoryDto
 {

@@ -1,16 +1,16 @@
-﻿using POS.Core.Models;
+﻿
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+namespace POS.Core.Dtos;
 public class SaleDto
 {
-    [Key]
+    
     public string SaleId { get; set; } = null!;
 
-    [Required]
+    
     public string UserId { get; set; } = null!;
 
-    [Required]
+   
     public DateTime SaleDate { get; set; }
 
     public float TotalAmount { get; set; }
@@ -19,13 +19,13 @@ public class SaleDto
 
     public string? TaxId { get; set; }
 
-    [ForeignKey(nameof(UserId))]
+    
     public virtual UserDto User { get; set; } = null!;
 
-    [ForeignKey(nameof(DiscountId))]
+    
     public virtual DiscountDto? Discount { get; set; }
 
-    [ForeignKey(nameof(TaxId))]
+    
     public virtual TaxDto? Tax { get; set; }
 
     public virtual ICollection<SaleItemDto> SaleItems { get; set; } = new List<SaleItemDto>();

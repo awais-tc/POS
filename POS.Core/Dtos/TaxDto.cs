@@ -1,8 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-
+﻿
+namespace POS.Core.Dtos;
 public class TaxDto
 {
-    [Key]
+    
     public string TaxId { get; set; } = null!;
 
     public float TaxPercentage { get; set; }

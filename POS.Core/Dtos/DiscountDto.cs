@@ -1,11 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+namespace POS.Core.Dtos;
 public class DiscountDto
 {
-    [Key]
+    
     public string DiscountId { get; set; } = null!;
 
-    [Required]
     public string Code { get; set; } = null!;
 
     public float Percentage { get; set; }

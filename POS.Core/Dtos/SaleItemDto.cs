@@ -1,16 +1,14 @@
-﻿using POS.Core.Models;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
+﻿
+namespace POS.Core.Dtos;
 public class SaleItemDto
 {
-    [Key]
+    
     public string SaleItemId { get; set; } = null!;
 
-    [Required]
+    
     public string SaleId { get; set; } = null!;
 
-    [Required]
+    
     public string ProductId { get; set; } = null!;
 
     public int Quantity { get; set; }
@@ -19,12 +17,11 @@ public class SaleItemDto
 
     public string? TaxId { get; set; }
 
-    [ForeignKey(nameof(SaleId))]
+    
     public virtual SaleDto Sale { get; set; } = null!;
 
-    [ForeignKey(nameof(ProductId))]
+    
     public virtual ProductDto Product { get; set; } = null!;
 
-    [ForeignKey(nameof(TaxId))]
     public virtual TaxDto? Tax { get; set; }
 }

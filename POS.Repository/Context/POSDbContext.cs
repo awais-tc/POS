@@ -8,30 +8,30 @@ namespace POS.Repository.Context
         {
         }
 
-        public DbSet<User> Users { get; set; }
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<Sale> Sales { get; set; }
-        public DbSet<SaleItem> SaleItems { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Payment> Payments { get; set; }
-        public DbSet<UserPayment> UserPayments { get; set; }
-        public DbSet<Discount> Discounts { get; set; }
-        public DbSet<Tax> Taxes { get; set; }
-        public DbSet<Barcode> Barcodes { get; set; }
-        public DbSet<Inventory> Inventories { get; set; }
-        public DbSet<Receipt> Receipts { get; set; }
+        public DbSet<UserDto> Users { get; set; }
+        public DbSet<RoleDto> Roles { get; set; }
+        public DbSet<SaleDto> Sales { get; set; }
+        public DbSet<SaleItemDto> SaleItems { get; set; }
+        public DbSet<ProductDto> Products { get; set; }
+        public DbSet<PaymentDto> Payments { get; set; }
+        public DbSet<UserPaymentDto> UserPayments { get; set; }
+        public DbSet<DiscountDto> Discounts { get; set; }
+        public DbSet<TaxDto> Taxes { get; set; }
+        public DbSet<BarcodeDto> Barcodes { get; set; }
+        public DbSet<InventoryDto> Inventories { get; set; }
+        public DbSet<ReceiptDto> Receipts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserPayment>()
+            modelBuilder.Entity<UserPaymentDto>()
                 .HasKey(up => new { up.UserId, up.PaymentId });
 
-            modelBuilder.Entity<UserPayment>()
+            modelBuilder.Entity<UserPaymentDto>()
                 .HasOne(up => up.User)
                 .WithMany(u => u.UserPayments)
                 .HasForeignKey(up => up.UserId);
 
-            modelBuilder.Entity<UserPayment>()
+            modelBuilder.Entity<UserPaymentDto>()
                 .HasOne(up => up.Payment)
                 .WithMany(p => p.UserPayments)
                 .HasForeignKey(up => up.PaymentId);

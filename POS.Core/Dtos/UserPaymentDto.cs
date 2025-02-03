@@ -1,13 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
+﻿
+namespace POS.Core.Dtos;
 public class UserPaymentDto
 {
     public string UserId { get; set; } = null!;
     public string PaymentId { get; set; } = null!;
 
-    [ForeignKey(nameof(UserId))]
+    
     public virtual UserDto User { get; set; } = null!;
 
-    [ForeignKey(nameof(PaymentId))]
     public virtual PaymentDto Payment { get; set; } = null!;
 }

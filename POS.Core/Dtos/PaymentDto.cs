@@ -1,23 +1,21 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+namespace POS.Core.Dtos;
 public class PaymentDto
 {
-    [Key]
+    
     public string PaymentId { get; set; } = null!;
 
-    [Required]
+    
     public string SaleId { get; set; } = null!;
 
-    [Required]
+    
     public float Amount { get; set; }
 
-    [Required]
+    
     public DateTime PaymentDate { get; set; }
 
-    [Required, MaxLength(50)]
     public string PaymentType { get; set; } = null!;
 
-    [MaxLength(20)]
     public string PaymentStatus { get; set; } = null!;
 
     public virtual ICollection<UserPaymentDto> UserPayments { get; set; } = new List<UserPaymentDto>();

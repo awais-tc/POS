@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+namespace POS.Core.Dtos;
 public class RoleDto
 {
-    [Key]
+    
     public string RoleId { get; set; } = null!;
 
-    [Required, MaxLength(50)]
+    
     public string RoleName { get; set; } = null!;
 
     public string? Permissions { get; set; }
