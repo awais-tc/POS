@@ -8,7 +8,7 @@ using POS.Core.Service;
 
 namespace POS.Service
 {
-    internal class UserService : IUserService
+    internal class UserService : IUserRepository
     {
         public Task<UserDto> Authenticate(string username, string password)
         {

@@ -7,7 +7,7 @@ using POS.Core.Dtos;
 
 namespace POS.Core.Service
 {
-    internal interface ISaleService
+    internal interface ISaleRepository
     {
         Task<ReceiptDto> CreateSaleAsync(SaleDto saleDto);
 

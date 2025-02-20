@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using POS.Core.Dtos;
 
-namespace POS.Core.Service
+namespace POS.Core.Repository
 {
     public interface IInventoryRepository
     {
