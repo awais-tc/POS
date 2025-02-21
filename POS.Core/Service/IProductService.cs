@@ -7,7 +7,7 @@ using POS.Core.Dtos;
 
 namespace POS.Core.Service
 {
-    public interface IProductRepository
+    public interface IProductService
     {
         public Task<ProductDto> AddProductAsync(ProductDto productDto);
         public Task<ProductDto> UpdateProductAsync(ProductDto productDto);

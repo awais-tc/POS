@@ -7,7 +7,7 @@ using POS.Core.Dtos;
 
 namespace POS.Core.Service
 {
-    public interface IInventoryRepository
+    public interface IInventoryService
     {
         Task<InventoryDto> AddInventory(InventoryDto inventoryDto);
         Task<InventoryDto> UpdateInventory(InventoryDto inventoryDto);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POS.Core.Service
 {
-    public interface ITaxRepository
+    public interface ITaxService
     {
         public double CalculateTax(double amount, double taxRate);
 

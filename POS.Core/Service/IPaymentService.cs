@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace POS.Core.Service
 {
-    public interface IPaymentRepository
+    public interface IPaymentService
     {
         public void ProcessPayment();
         public void UpdatePaymentStatus(PaymentDto paymentDto);

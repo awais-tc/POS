@@ -7,7 +7,7 @@ using POS.Core.Dtos;
 
 namespace POS.Core.Service
 {
-    public interface IReceiptRepository
+    public interface IReceiptService
     {
         Task<ReceiptDto> GenerateReceiptAsync(SaleDto sale);
 

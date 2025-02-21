@@ -7,7 +7,7 @@ using POS.Core.Dtos;
 
 namespace POS.Core.Service
 {
-    internal interface IRoleRepository
+    internal interface IRoleService
     {
         Task<RoleDto> CreateRole(RoleDto roleDto);
         Task<RoleDto> UpdateRole(RoleDto roleDto);

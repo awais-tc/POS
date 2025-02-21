@@ -1,48 +1,70 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 using POS.Core.Dtos;
+using POS.Core.Repository;
 using POS.Core.Service;
 
 namespace POS.Service
 {
-    internal class UserService : IUserRepository
+    public class UserService : IUserService
     {
-        public Task<UserDto> Authenticate(string username, string password)
+        private readonly IUserRepository _userRepository;
+        private readonly IMapper _mapper;
+
+        public UserService(IUserRepository userRepository, IMapper mapper)
         {
-            throw new NotImplementedException();
+            _userRepository = userRepository;
+            _mapper = mapper;
         }
 
-        public Task<UserDto> Create(UserDto user)
+        public async Task<UserDto> Authenticate(string username, string password)
         {
-            throw new NotImplementedException();
+            var user = await _userRepository.GetByUsername(username);
+            if (user == null || !VerifyPassword(user.Password, password))
+                return null;
+
+            return _mapper.Map<UserDto>(user);
         }
 
-        public Task Delete(int id)
+        public async Task<UserDto> Create(UserDto userDto)
         {
-            throw new NotImplementedException();
+            var userEntity = _mapper.Map<User>(userDto);
+            var createdUser = await _userRepository.Create(userEntity);
+            return _mapper.Map<UserDto>(createdUser);
         }
 
-        public Task<IEnumerable<UserDto>> GetAll()
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            await _userRepository.Delete(id);
         }
 
-        public Task<UserDto> GetById(int id)
+        public async Task<IEnumerable<UserDto>> GetAll()
         {
-            throw new NotImplementedException();
+            var users = await _userRepository.GetAll();
+            return _mapper.Map<IEnumerable<UserDto>>(users);
         }
 
-        public Task<UserDto> GetByUsername(string username)
+        public async Task<UserDto> GetById(int id)
         {
-            throw new NotImplementedException();
+            var user = await _userRepository.GetById(id);
+            return _mapper.Map<UserDto>(user);
         }
 
-        public Task Update(UserDto user)
+        public async Task<UserDto> GetByUsername(string username)
         {
-            throw new NotImplementedException();
+            var user = await _userRepository.GetByUsername(username);
+            return _mapper.Map<UserDto>(user);
+        }
+
+        public async Task Update(UserDto userDto)
+        {
+            var userEntity = _mapper.Map<User>(userDto);
+            await _userRepository.Update(userEntity);
+        }
+
+        private bool VerifyPassword(string storedPassword, string enteredPassword)
+        {
+            // Implement password hashing and verification logic here.
+            return storedPassword == enteredPassword; // Replace with proper hashing check.
         }
     }
 }

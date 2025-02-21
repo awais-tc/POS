@@ -1,8 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentAssertions.Common;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using POS.Core.Repository;
+using POS.Core.Service;
+using POS.Repository;
 using POS.Repository.Context;
-
+using POS.Service;
 using System;
 
 namespace POS
@@ -13,6 +17,7 @@ namespace POS
         {
             // Create a Host to manage services
             var host = CreateHostBuilder(args).Build();
+
 
             // Run database migrations
             using (var scope = host.Services.CreateScope())
@@ -37,7 +42,10 @@ namespace POS
                 .ConfigureServices((context, services) =>
                 {
                     services.AddDbContext<POSDbContext>(options =>
-                        options.UseSqlServer("Data Source=DESKTOP-KQ5BDOJ\\SQLEXPRESS;Initial Catalog=POS_Updated;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False"));
+                        options.UseSqlServer("Data Source=DESKTOP-J5IS95J\\SQLEXPRESS;Initial Catalog=POS;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False"));
+
+                    services.AddScoped<IUserService, UserService>();
+                    services.AddScoped<IUserRepository, UserRepository>();
                 });
     }
 }
