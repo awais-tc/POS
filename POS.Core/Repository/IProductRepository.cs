@@ -5,10 +5,10 @@ namespace POS.Core.Repository
 {
     public interface IProductRepository
     {
-        public Task<ProductDto> AddProductAsync(ProductDto productDto);
-        public Task<ProductDto> UpdateProductAsync(ProductDto productDto);
-        public Task<ProductDto> GetProductAsync(string productId);
-        public Task<List<ProductDto>> GetAllProductsAsync();
-        public Task<ProductDto> DeleteProductAsync(string productId);
+        Task<Product> AddAsync(Product product);
+        Task<Product> UpdateAsync(Product product);
+        Task<Product?> GetByIdAsync(string productId);
+        Task<List<Product>> GetAllAsync();
+        Task<bool> DeleteAsync(Product product);
     }
 }

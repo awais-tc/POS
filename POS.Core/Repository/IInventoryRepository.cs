@@ -9,11 +9,11 @@ namespace POS.Core.Repository
 {
     public interface IInventoryRepository
     {
-        Task<InventoryDto> AddInventory(InventoryDto inventoryDto);
-        Task<InventoryDto> UpdateInventory(InventoryDto inventoryDto);
-        Task<InventoryDto> GetInventory(string inventoryId);
-        Task<List<InventoryDto>> GetInventories();
-        Task<List<InventoryDto>> GetInventoriesByProductId(string productId);
-        Task<bool> DeleteInventory(string inventoryId);
+        Task<InventoryDto> AddInventoryAsync(InventoryDto inventoryDto);
+        Task<InventoryDto> UpdateInventoryAsync(InventoryDto inventoryDto);
+        Task<InventoryDto> GetInventoryAsync(string inventoryId);
+        Task<List<InventoryDto>> GetAllInventoriesAsync();
+        Task<List<InventoryDto>> GetInventoriesByProductIdAsync(string productId);
+        Task<bool> DeleteInventoryAsync(string inventoryId);
     }
 }

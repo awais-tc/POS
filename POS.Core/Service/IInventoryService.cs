@@ -9,7 +9,7 @@ namespace POS.Core.Service
 {
     public interface IInventoryService
     {
-        Task<InventoryDto> AddInventory(InventoryDto inventoryDto);
+        Task<InventoryDto> AddInventoryAsync(InventoryDto inventoryDto);
         Task<InventoryDto> UpdateInventory(InventoryDto inventoryDto);
         Task<InventoryDto> GetInventory(string inventoryId);
         Task<List<InventoryDto>> GetInventories();
