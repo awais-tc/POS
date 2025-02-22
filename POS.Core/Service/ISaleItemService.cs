@@ -7,7 +7,7 @@ using POS.Core.Dtos;
 
 namespace POS.Core.Service
 {
-    internal interface ISaleItemService
+    public interface ISaleItemService
     {
         Task AddSaleItemAsync(SaleItemDto saleItemDto);
         Task<SaleItemDto> GetSaleItemAsync(string saleItemId);

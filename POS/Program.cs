@@ -46,6 +46,15 @@ namespace POS
 
                     services.AddScoped<IUserService, UserService>();
                     services.AddScoped<IUserRepository, UserRepository>();
+                    services.AddScoped<ITaxService, TaxService>();
+                    services.AddScoped<ITaxRepository, TaxRepository>();
+                    services.AddScoped<IProductService, ProductService>();
+                    services.AddScoped<IProductRepository, ProductRepository>();
+                    services.AddScoped<ISaleItemService, SaleItemService>();
+                    services.AddScoped<ISaleItemRepository, SaleItemRepository>();
+
+                    services.AddAutoMapper(typeof(TaxMappingProfile));
+
                 });
     }
 }

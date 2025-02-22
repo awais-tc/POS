@@ -14,8 +14,5 @@ namespace POS.Core.Service
         public Task<ProductDto> GetProductAsync(string productId);
         public Task<List<ProductDto>> GetAllProductsAsync();
         public Task<ProductDto> DeleteProductAsync(string productId);
-
-
-
     }
 }

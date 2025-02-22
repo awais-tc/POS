@@ -3,7 +3,7 @@ using POS.Core.Dtos;
 
 namespace POS.Core.Repository
 {
-    internal interface ISaleItemRepository
+    public interface ISaleItemRepository
     {
         Task AddSaleItemAsync(SaleItemDto saleItemDto);
         Task<SaleItemDto> GetSaleItemAsync(string saleItemId);
