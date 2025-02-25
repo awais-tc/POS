@@ -2,7 +2,6 @@
 namespace POS.Core.Dtos;
 public class SaleDto
 {
-    
     public string SaleId { get; set; } = null!;
     public string UserId { get; set; } = null!;
     public DateTime SaleDate { get; set; }

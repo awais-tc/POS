@@ -9,6 +9,7 @@ namespace POS.Core.Repository
         Task<BarcodeDto> GetBarcodeAsync(string barcodeId);
         Task<IEnumerable<BarcodeDto>> GetBarcodesAsync();
         Task<BarcodeDto> UpdateBarcodeAsync(BarcodeDto barcodeDto);
-        Task<BarcodeDto> DeleteBarcodeAsync(string barcodeId);
+        Task<bool> DeleteBarcodeAsync(string barcodeId);
+        Task<BarcodeDto> GetBarcodeByProductIdAsync(string productId);
     }
 }

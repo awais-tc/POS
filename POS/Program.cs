@@ -1,13 +1,10 @@
-﻿using FluentAssertions.Common;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using POS.Core.Repository;
 using POS.Core.Service;
+using POS.Service;
 using POS.Repository;
 using POS.Repository.Context;
-using POS.Service;
-using System;
+using Microsoft.EntityFrameworkCore;
 
 namespace POS
 {
@@ -17,7 +14,6 @@ namespace POS
         {
             // Create a Host to manage services
             var host = CreateHostBuilder(args).Build();
-
 
             // Run database migrations
             using (var scope = host.Services.CreateScope())
@@ -41,20 +37,26 @@ namespace POS
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((context, services) =>
                 {
-                    services.AddDbContext<POSDbContext>(options =>
-                        options.UseSqlServer("Data Source=DESKTOP-J5IS95J\\SQLEXPRESS;Initial Catalog=POS;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False"));
+                    // Load configuration
+                    var configuration = context.Configuration;
 
+                    // Register repository layer (removes direct dependency on DbContext)
+                    services.AddRepositoryLayer(configuration);
+
+                    // Register service layer
                     services.AddScoped<IUserService, UserService>();
-                    services.AddScoped<IUserRepository, UserRepository>();
                     services.AddScoped<ITaxService, TaxService>();
-                    services.AddScoped<ITaxRepository, TaxRepository>();
                     services.AddScoped<IProductService, ProductService>();
-                    services.AddScoped<IProductRepository, ProductRepository>();
                     services.AddScoped<ISaleItemService, SaleItemService>();
-                    services.AddScoped<ISaleItemRepository, SaleItemRepository>();
+                    services.AddScoped<IDiscountService, DiscountService>();
+                    services.AddScoped<IBarcodeService, BarcodeService>();
+                    services.AddScoped<ISaleService, SaleService>();
+                    services.AddScoped<IInventoryService, InventoryService>();
+                    services.AddScoped<IRoleService, RoleService>();
+                    services.AddScoped<IReceiptService, ReceiptService>();
+                    services.AddScoped<IPaymentService, PaymentService>();
 
                     services.AddAutoMapper(typeof(TaxMappingProfile));
-
                 });
     }
 }
