@@ -1,11 +1,23 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using POS.Core.Models;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace POS.Repository.Context
 {
     public class POSDbContext : DbContext
     {
-        public POSDbContext(DbContextOptions<POSDbContext> options) : base(options)
+        private readonly IConfiguration _configuration;
+
+        public POSDbContext(IConfiguration configuration)
         {
+            _configuration = configuration;
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            var connectionString = _configuration.GetConnectionString("Data Source=DESKTOP-J5IS95J\\SQLEXPRESS;Initial Catalog=POS;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+            optionsBuilder.UseSqlServer(connectionString);
         }
 
         public DbSet<User> Users { get; set; }

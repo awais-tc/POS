@@ -4,7 +4,9 @@ namespace POS.Core.Repository
 {
     public interface IReceiptRepository
     {
-        Task<ReceiptDto> GenerateReceiptAsync(SaleDto sale);
-
+        Task<ReceiptDto> AddAsync(ReceiptDto receiptDto);
+        Task<ReceiptDto?> GetBySaleIdAsync(string saleId);
+        Task<List<ReceiptDto>> GetAllAsync();
     }
+
 }

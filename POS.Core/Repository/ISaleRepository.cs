@@ -5,7 +5,8 @@ namespace POS.Core.Repository
 {
     public interface ISaleRepository
     {
-        Task<ReceiptDto> CreateSaleAsync(SaleDto saleDto);
-
+        Task<SaleDto> AddAsync(SaleDto saleDto);
+        Task<SaleDto?> GetByIdAsync(string saleId);
+        Task<List<SaleDto>> GetAllAsync();
     }
 }

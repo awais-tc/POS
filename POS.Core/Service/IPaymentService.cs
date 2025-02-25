@@ -9,8 +9,10 @@ namespace POS.Core.Service
 {
     public interface IPaymentService
     {
-        public void ProcessPayment();
-        public void UpdatePaymentStatus(PaymentDto paymentDto);
-
+        Task<PaymentDto> ProcessPaymentAsync(PaymentDto paymentDto);
+        Task UpdatePaymentStatusAsync(PaymentDto paymentDto);
+        Task<PaymentDto?> GetPaymentByIdAsync(string paymentId);
+        Task<List<PaymentDto>> GetAllPaymentsAsync();
     }
+
 }
